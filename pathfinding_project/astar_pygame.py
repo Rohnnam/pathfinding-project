@@ -68,30 +68,6 @@ def astar(grid, start, goal):
 
     return False, nodes_processed
 
-def catmull_rom_spline(p0, p1, p2, p3, num_points=10):
-    def interpolate(t, p0, p1, p2, p3):
-        return (0.5 * ((2 * p1) +
-                        (-p0 + p2) * t +
-                        (2*p0 - 5*p1 + 4*p2 - p3) * t**2 +
-                        (-p0 + 3*p1 - 3*p2 + p3) * t**3))
-
-    points = []
-    for i in range(num_points):
-        t = i / (num_points - 1)
-        x = interpolate(t, p0[0], p1[0], p2[0], p3[0])
-        y = interpolate(t, p0[1], p1[1], p2[1], p3[1])
-        points.append((int(x), int(y)))
-    return points
-
-def smooth_path(path):
-    smoothed_path = []
-    if len(path) < 4:
-        return path
-    for i in range(1, len(path) - 2):
-        smoothed_path.extend(catmull_rom_spline(path[i - 1], path[i], path[i + 1], path[i + 2]))
-    smoothed_path.append(path[-1])
-    return smoothed_path
-
 def draw_grid(win, grid, start, goal):
     for row in range(ROWS):
         for col in range(COLS):
@@ -136,7 +112,6 @@ def main():
     
     goal = None
     path = []
-    smoothed_path = []
     nodes_processed = 0
 
     # Generate initial random obstacles
@@ -159,7 +134,6 @@ def main():
                 if grid[row][col] == 0:
                     goal = (row, col)
                     path, nodes_processed = astar(grid, start, goal) if goal else ([], 0)
-                    smoothed_path = smooth_path(path) if path else []
                     animating = True  # Start animation
 
             if event.type == pygame.KEYDOWN:
@@ -171,7 +145,6 @@ def main():
                         if (row, col) != start:
                             grid[row][col] = 1
                     path = []
-                    smoothed_path = []
                     nodes_processed = 0
                     goal = None  # Clear previous goal point
                     animating = False  # Stop animation
@@ -181,15 +154,15 @@ def main():
 
         if goal:
             if animating:
-                if smoothed_path:
-                    draw_path(win, smoothed_path, goal, animate=True)
+                if path:
+                    draw_path(win, path, goal, animate=True)
                     animating = False  # Stop animation once finished
             else:
-                if smoothed_path:
-                    draw_path(win, smoothed_path, goal, animate=False)
+                if path:
+                    draw_path(win, path, goal, animate=False)
         
         # Draw metrics
-        path_length = len(smoothed_path) if smoothed_path else 0
+        path_length = len(path) if path else 0
         draw_metrics(win, nodes_processed, path_length)
 
         pygame.display.flip()
