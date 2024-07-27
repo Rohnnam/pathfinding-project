@@ -12,9 +12,9 @@ This project demonstrates pathfinding visualization using the A* algorithm with 
 - **Performance Metrics**: Shows the number of nodes processed and the length of the path.
 
 ## Installation
-
+```
 1. Clone the Repository:
-   git clone https://github.com/yourusername/pathfinding-project.git
+   git clone https://github.com/Rohnnam/pathfinding-project.git
    cd pathfinding-project
 
 2. Set Up the Virtual Environment (optional but recommended):
@@ -23,4 +23,4 @@ This project demonstrates pathfinding visualization using the A* algorithm with 
   source .venv/bin/activate  # On Windows, use `.venv\Scripts\activate`
 
 3. Install Dependencies:
-  pip install -r requirements.txt
+  pip install -r requirements.txt```
