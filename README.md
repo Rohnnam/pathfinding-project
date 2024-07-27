@@ -12,8 +12,8 @@ This project demonstrates pathfinding visualization using the A* algorithm with 
 - **Performance Metrics**: Shows the number of nodes processed and the length of the path.
 
 ## Installation
-'''
-1. **Clone the Repository**:
+
+'''1. Clone the Repository:
    git clone https://github.com/yourusername/pathfinding-project.git
    cd pathfinding-project
 
