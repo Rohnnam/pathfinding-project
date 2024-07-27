@@ -1,4 +1,4 @@
-# pathfinding-project
+# Pathfinding-project
 
 ## Overview
 
