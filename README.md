@@ -26,7 +26,7 @@ This project implements and visualizes the A* (A-star) pathfinding algorithm, wh
 ```
 
 
-**Working**
+## Working
 ```
 Grid Initialization:
  A grid is initialized with random obstacles and a fixed start point at the center of the grid. The goal point is set by user interaction.
