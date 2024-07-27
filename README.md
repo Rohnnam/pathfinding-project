@@ -13,7 +13,7 @@ This project demonstrates pathfinding visualization using the A* algorithm with 
 
 ## Installation
 
-'''1. Clone the Repository:
+1. Clone the Repository:
    git clone https://github.com/yourusername/pathfinding-project.git
    cd pathfinding-project
 
@@ -23,4 +23,4 @@ This project demonstrates pathfinding visualization using the A* algorithm with 
   source .venv/bin/activate  # On Windows, use `.venv\Scripts\activate`
 
 3. Install Dependencies:
-  pip install -r requirements.txt'''
+  pip install -r requirements.txt
