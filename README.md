@@ -26,6 +26,11 @@ This project implements and visualizes the A* (A-star) pathfinding algorithm, wh
 ```
 
 
+## Usage
+
+**Run the Application**: Execute the script to start the visualization. Use the mouse to set the goal point and observe the pathfinding process.<br>
+    Reset the Grid: Press 'R' to reset the grid and obstacles, which also clears the previous goal point and path.<br>
+
 ## Working
 ```
 Grid Initialization:
